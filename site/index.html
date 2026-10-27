@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How Inward-Facing Are You?</title>
+  <meta name="description" content="A 4-minute quiz: how inward-facing you are on four dimensions, and three next steps to face outward. Answers stay in your browser.">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Apply the saved theme before first paint, so there's no flash.
+    try { const t = JSON.parse(localStorage.getItem("hifay.v1"))?.settings?.theme; if (t && t !== "system") document.documentElement.dataset.theme = t; } catch {}
+  </script>
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#" aria-label="How Inward-Facing Are You? home">
+      <img src="icon.svg" alt="" width="28" height="28">
+      <span>How Inward-Facing Are You?</span>
+    </a>
+    <nav class="top-actions">
+      <a href="#how" class="link-quiet">How it's scored</a>
+      <button class="icon-btn" id="open-settings" aria-label="Settings" title="Settings (⌘ ,)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="app" tabindex="-1"></main>
+
+  <a class="feedback-tab" href="https://github.com/amalmehta/HowInwardFacingAreYou/issues/new?title=Feedback" target="_blank" rel="noopener">Feedback</a>
+
+  <dialog id="settings" aria-labelledby="settings-title">
+    <form method="dialog">
+      <h2 id="settings-title">Settings</h2>
+      <fieldset>
+        <legend>Theme</legend>
+        <div class="seg" role="radiogroup">
+          <label><input type="radio" name="theme" value="system"> System</label>
+          <label><input type="radio" name="theme" value="light"> Light</label>
+          <label><input type="radio" name="theme" value="dark"> Dark</label>
+        </div>
+      </fieldset>
+      <label class="check"><input type="checkbox" name="reduceMotion"> Reduce motion</label>
+      <div class="settings-danger">
+        <div>
+          <strong>Clear my answers</strong>
+          <p>Removes everything this site saved in this browser. It can't be undone.</p>
+        </div>
+        <button type="button" class="btn ghost" id="clear-data">Clear</button>
+      </div>
+      <p class="fine">Your answers never leave this browser. There's no account, no server and no tracking.</p>
+      <div class="dialog-actions"><button class="btn primary" value="close">Done</button></div>
+    </form>
+  </dialog>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "how-inward-facing-are-you",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 4173 -d site",
+    "test": "node --test tests/unit/*.test.js",
+    "test:ui": "playwright test",
+    "test:all": "npm test && npm run test:ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.64.1"
+  }
+}
