@@ -28,7 +28,7 @@ npm run test:ui   # Playwright: Chromium, WebKit, iPhone 13 size
 
 ## Deploy
 
-Pushing to `main` runs the tests in GitHub Actions and publishes `site/` to GitHub Pages.
+Pushing to `main` runs the unit tests and the Chromium UI tests in GitHub Actions (WebKit and phone run locally with `npm run test:ui`) and publishes `site/` to GitHub Pages.
 
 ## Manual review checklist
 

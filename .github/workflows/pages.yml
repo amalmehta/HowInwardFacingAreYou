@@ -18,14 +18,15 @@ concurrency:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm ci
       - run: npm test
-      - run: npx playwright install --with-deps chromium webkit
-      - run: npm run test:ui
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test --project=chromium
 
   deploy:
     if: github.ref == 'refs/heads/main'
